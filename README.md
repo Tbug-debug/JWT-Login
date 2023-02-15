@@ -10,8 +10,8 @@
 
 
 ## 1. 소개
-### React Redux와 TypeScript로 기본 ToDo 만들기.
-React Redux를 사용하여 기본 ToDo를 만들었습니다.
+### React, Typescript, axios를 이용해서 JWT 로그인 기능을 구현했습니다.
+
 
 
 ## 2. 기술 스택
