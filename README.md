@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# Axios Login 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 목차
 
-In the project directory, you can run:
+-   [1. 소개](#1-소개)
+-   [2. 기술 스택](#2-기술-스택)
+-   [3. API 명세서](#3-API-명세서)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 1. 소개
+### React Redux와 TypeScript로 기본 ToDo 만들기.
+React Redux를 사용하여 기본 ToDo를 만들었습니다.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 2. 기술 스택
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white">
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. API 명세서
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+| 기능           | URL  | Method   | request                                                                       | response                                                      | error                                                                                                                                                                                                                                                                                 |
+| -------------- | ---- | -------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 유저 회원가입  | post | register | body / id:string / password:string                                            | 201 / 없음                                                    | 401 이미 존재하는 유저 id 입니다.  /  401 id 또는 password가 존재하지 않습니다. /  401 id 또는 password가 string이 아닙니다.                                                                                                                                                          |
+| 유저 로그인    | post | login    | body / id:string / password:string                                            | 201 / token: string / { "token": ~~~~ }                       | 401 존재하지 않는 유저입니다. 401 비밀번호가 일치하지 않습니다. / 401 id 또는 password가 존재하지 않습니다. / 401 id 또는 password가 string이 아닙니다.                                                                                                                               |
+| 유저 인증 확인 | get  | user     | header /  authorization: string ex) authorization : Bearer asdffsfsdfafljeope | 200  / message: string {message: “인증에 성공한 요청입니다.”} | 401 / 토큰이 만료되었습니다. 토큰은 60분간 유지됩니다. / 401 / 위조되었거나 잘못된 형식의 token입니다 /  401 /  header에 authorization 정보가 존재하지 않습니다 . /  401 / tokenType이 올바르지 않습니다.(보낸 type은 "${tokenType}" 입니다.) / 401 / token value가 존재하지 않습니다. |               |      |          |                                                                               |                                                               |                                                                                                                                                                                                                                                                                       |
